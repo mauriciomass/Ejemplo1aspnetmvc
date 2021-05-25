@@ -50,5 +50,57 @@ namespace Ejemplo1aspnetmvc.Controllers
 
         }
 
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    cliente findUser = db.cliente.Where(a => a.id == id).FirstOrDefault();
+                    return View(findUser);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(cliente clienteEdit)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    cliente user = db.cliente.Find(clienteEdit.id);
+
+                    user.nombre = clienteEdit.nombre;
+                    user.documento = clienteEdit.documento;
+                    user.email = clienteEdit.email;
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                cliente user = db.cliente.Find(id);
+                return View(user);
+            }
+        }
+
     }
 }
