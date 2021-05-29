@@ -7,17 +7,17 @@ using Ejemplo1aspnetmvc.Models;
 
 namespace Ejemplo1aspnetmvc.Controllers
 {
-    public class ClienteController : Controller
+    public class RolesController : Controller
     {
-        // GET: Cliente
+        // GET: Roles
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
 
-                return View(db.cliente.ToList());
+                return View(db.roles.ToList());
             }
-            
+
         }
 
         public ActionResult Create()
@@ -27,9 +27,9 @@ namespace Ejemplo1aspnetmvc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(cliente cliente)
+        public ActionResult Create(roles roles)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
 
                 return View();
 
@@ -37,12 +37,13 @@ namespace Ejemplo1aspnetmvc.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.cliente.Add(cliente);
+                    db.roles.Add(roles);
                     db.SaveChanges();
                     return RedirectToAction("Index");
 
                 }
-            }catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", " error " + ex);
                 return View();
@@ -56,7 +57,7 @@ namespace Ejemplo1aspnetmvc.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    cliente findUser = db.cliente.Where(a => a.id == id).FirstOrDefault();
+                    roles findUser = db.roles.Where(a => a.id == id).FirstOrDefault();
                     return View(findUser);
                 }
             }
@@ -70,17 +71,15 @@ namespace Ejemplo1aspnetmvc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(cliente clienteEdit)
+        public ActionResult Edit(roles rolesEdit)
         {
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    cliente user = db.cliente.Find(clienteEdit.id);
+                    roles user = db.roles.Find(rolesEdit.id);
 
-                    user.nombre = clienteEdit.nombre;
-                    user.documento = clienteEdit.documento;
-                    user.email = clienteEdit.email;
+                    user.descripcion = rolesEdit.descripcion;
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -97,7 +96,7 @@ namespace Ejemplo1aspnetmvc.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                cliente user = db.cliente.Find(id);
+                roles user = db.roles.Find(id);
                 return View(user);
             }
         }
@@ -106,8 +105,8 @@ namespace Ejemplo1aspnetmvc.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                var cliente = db.cliente.Find(id);
-                db.cliente.Remove(cliente);
+                var roles = db.roles.Find(id);
+                db.roles.Remove(roles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
