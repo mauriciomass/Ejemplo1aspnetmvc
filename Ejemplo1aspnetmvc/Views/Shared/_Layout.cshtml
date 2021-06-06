@@ -28,6 +28,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("CRUD Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("CRUD Compra", "Index", "Compras")</li>
                         <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
                     }
                 </ul>
