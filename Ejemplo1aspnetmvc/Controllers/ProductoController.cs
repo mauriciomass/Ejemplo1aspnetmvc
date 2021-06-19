@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ejemplo1aspnetmvc.Models;
+using Rotativa;
 
 namespace Ejemplo1aspnetmvc.Controllers
 {
@@ -149,6 +150,11 @@ namespace Ejemplo1aspnetmvc.Controllers
                 return View();
             }
         
+        }
+
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
     }
 }
