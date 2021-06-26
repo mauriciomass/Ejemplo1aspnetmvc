@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ejemplo1aspnetmvc.Models;
+using Rotativa;
 
 namespace Ejemplo1aspnetmvc.Controllers
 {
@@ -139,6 +140,37 @@ namespace Ejemplo1aspnetmvc.Controllers
                 return View();
             }
         }
+
+        public ActionResult ReporteCompra()
+        {
+
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabCliente in db.cliente
+                            join tabCompra in db.compra on tabCliente.id equals tabCompra.id_cliente
+                            select new ReporteCompra
+                            {
+                                nombreCliente = tabCliente.nombre,
+                                documentoCliente = tabCliente.documento,
+                                fechaCompra = tabCompra.fecha,
+                                totalCompra = tabCompra.total
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+
+        }
+
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("ReporteCompra") { FileName = "reportecompra.pdf" };
+        }
+
 
     }
 }
