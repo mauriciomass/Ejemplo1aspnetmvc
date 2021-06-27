@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ejemplo1aspnetmvc.Models;
+using System.Text;
+using Rotativa;
 
 namespace Ejemplo1aspnetmvc.Controllers
 {

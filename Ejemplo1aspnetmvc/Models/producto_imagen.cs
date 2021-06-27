@@ -11,10 +11,12 @@ namespace Ejemplo1aspnetmvc.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto_imagen
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
         public string imagen { get; set; }
         public int id_producto { get; set; }
     

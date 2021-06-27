@@ -37,7 +37,7 @@
                     {
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú CRUD Tablas <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú CRUD Tablas <span class="glyphicon glyphicon-folder-open"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">@Html.ActionLink("CRUD Usuario", "Index", "Usuario") </a></li>
                                 <li><a href="#">@Html.ActionLink("CRUD Cliente", "Index", "Cliente") </a></li>
@@ -52,7 +52,7 @@
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subir Archivos <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subir Archivos <span class="glyphicon glyphicon-folder-open"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">@Html.ActionLink("Subir Cliente", "uploadCSV", "Cliente") </a></li>
                                 <li><a href="#">@Html.ActionLink("Subir Proveedor", "uploadCSV", "Proveedor") </a></li>
@@ -60,7 +60,7 @@
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="glyphicon glyphicon-folder-open"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">@Html.ActionLink("Reporte Compra", "ReporteCompra", "Compras") </a></li>
                                 <li><a href="#">@Html.ActionLink("Reporte Proveedor", "Reporte", "Producto") </a></li>
@@ -78,7 +78,8 @@
         @RenderBody()
         <hr />
         <footer>
-            @*<p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>*@
+            <p>&copy; @DateTime.Now.Year - Mauricio Mass - Jineth Zuluaga</p>
+            
         </footer>
     </div>
 
@@ -87,3 +88,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

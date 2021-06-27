@@ -11,7 +11,8 @@ namespace Ejemplo1aspnetmvc.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,12 @@ namespace Ejemplo1aspnetmvc.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public string documento { get; set; }
+
+        [EmailAddress]
         public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

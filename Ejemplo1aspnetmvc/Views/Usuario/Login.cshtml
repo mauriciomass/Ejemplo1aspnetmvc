@@ -17,16 +17,18 @@
     <form action="/Usuario/Login" method="post">
         @Html.AntiForgeryToken()
         <div class="form-group">
-            <label class="control-label col-md-2">Correo</label>
+            <label class="control-label col-md-2">Correo</label>            
             <div class="col-md-10">
-                <input type="email" name="email" class="form-control" />
-            </div>
+                
+                    <input type="email" name="email" /> <span class="glyphicon glyphicon-envelope"></span>
+
+                </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2">Contraseña</label>
             <div class="col-md-10">
-                <input type="password" name="password" class="form-control" />
+                <input type="password" name="password" /> <span class="glyphicon glyphicon-check"></span>
             </div>
         </div>
 

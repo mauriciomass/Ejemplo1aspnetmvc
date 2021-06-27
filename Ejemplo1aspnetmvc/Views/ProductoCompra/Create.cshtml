@@ -16,7 +16,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        <label class="control-label col-md-2" for="id_compra">Comprador</label>
+        <label class="control-label col-md-2" for="id_compra">Compra</label>
         <div class="col-md-10">
             @Html.Action("ListarCompra")
             @Html.ValidationMessageFor(model => model.id_compra, "", new { @class = "text-danger" })
